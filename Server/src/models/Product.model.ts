@@ -1,26 +1,23 @@
-import { Table, Column, Model, DataType } from "sequelize-typescript"
+import { Table, Column, Model, DataType, Default } from "sequelize-typescript";  
 
 @Table({
-    tableName: 'products',
+    tableName: "products",
     timestamps: true,
     underscored: true,
 })
-
-class Product extends Model {
+class product extends Model{
     @Column({
-        type: DataType.STRING(100)
+        type: DataType.STRING(50)
     })
-    name: string
-
-    @Column({
-        type: DataType.FLOAT(5, 2)
-    })
-    price: number
+    name!: string;
 
     @Column({
-        type: DataType.BOOLEAN
+        type: DataType.STRING(50)
     })
-    disponibility: boolean
+    price!: string;
+    @Column({
+        type: DataType.BOOLEAN,
+    })
+    disponibility!: boolean;
 }
-
-export default Product
+export default product;

@@ -1,21 +1,21 @@
 {
-  "name": "rest_api_3004",
+  "name": "rest_api_nod_ts_serve_602",
   "version": "1.0.0",
-  "description": "api rest nod type",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon  --exec ts-node src/index.ts"
+    "dev": "nodemon --exec ts-node src/index.ts"
   },
-  "author": "gabriel francisco",
+  "author": "Ing. Val",
   "license": "ISC",
+  "description": "",
   "dependencies": {
-    "colors": "^1.4.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "express-validator": "^7.2.1",
-    "pg": "^8.15.6",
+    "pg": "^8.16.0",
     "pg-hstore": "^2.3.4",
-    "rest_api_3004": "file:",
+    "rest_api_nod_ts_serve_602": "file:",
     "sequelize": "^6.37.7",
     "sequelize-typescript": "^2.1.6"
   },

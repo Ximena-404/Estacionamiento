@@ -1,25 +1,27 @@
-import express from 'express';
-import router from './router';
-import db from './config/db';
+import express from "express";
+import router from "./router";
+import db from "./config/db";
+import cors from "cors";
 
 async function connectDB() {
     try {
         await db.authenticate();
-        db.sync()
-        console.log('Conexión exitosa a la base de datos');
+        await db.sync(); // Sincroniza los modelos con la base de datos
+        console.log("Connected to the database successfully!");
     } catch (error) {
-        console.log('Error al conectarse con la BS:');
-        console.log(error);
+        console.error("Error connecting to the database:", error);
     }
 }
-connectDB()
+
+connectDB();
 
 const server = express();
 
-server.use(express.json()) 
+// Configurar CORS
+server.use(cors({
+    origin: "http://localhost:5173", // Permitir solicitudes desde el frontend
+}));
+server.use(express.json());
+server.use('/api/clients', router); // Cambiado a "clients" para reflejar los datos actuales
 
-server.use('/api/products', router)
-server.use('/api/clients', router)
-server.use('/api', router);
 export default server;
-
